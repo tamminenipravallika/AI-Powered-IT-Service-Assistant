@@ -1,4 +1,10 @@
-# This is the backend entry file for AISA project
+# Backend server for AISA project
 
-print("Hello! This is AISA backend.")
-print("This project is built step by step.")
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route("/")
+def home():
+    return "AISA backend server is running"
+
