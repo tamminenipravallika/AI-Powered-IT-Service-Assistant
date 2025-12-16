@@ -15,4 +15,6 @@ def status():
 @app.route("/issue", methods=["POST"])
 def issue():
     data=request.json
-    return data
+    user_issue = data["issue"]
+    return f"Issue received successfully: {user_issue}"
+
