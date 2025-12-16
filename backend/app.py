@@ -3,6 +3,7 @@
 from flask import Flask, request
 
 app = Flask(__name__)
+ticket_id = 1
 
 @app.route("/")
 def home():
@@ -14,6 +15,8 @@ def status():
 
 @app.route("/issue", methods=["POST"])
 def issue():
+    global ticket_id
+    
     data=request.json
     user_issue = data["issue"].lower()
 
@@ -30,10 +33,14 @@ def issue():
         category="General IT issue"
         solution="Your issue has been noted. IT support will contact you."
 
-return{
-    "issue"=user_issue,
-    "category"=category,
-    "suggested_solution"=solution
-}
+    ticket={
+        "ticket_id"=ticket_id,
+        "issue"=user_issue,
+        "category"=category,
+        "status"="open",
+        "suggested_solution"=solution
+    }
+    ticket_id +=1
+return ticket
    
 
