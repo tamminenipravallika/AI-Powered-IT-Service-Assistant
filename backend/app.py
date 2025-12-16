@@ -15,6 +15,20 @@ def status():
 @app.route("/issue", methods=["POST"])
 def issue():
     data=request.json
-    user_issue = data["issue"]
-    return f"Issue received successfully: {user_issue}"
+    user_issue = data["issue"].lower()
+
+    if "vpn" in user_issue or "network" in user_issue:
+        category="Network issue"
+    elif "password" in user_issue or "signin" in user_issue or "login" in user_issue or "signup" in user_issue:
+        category="Access issue"
+    elif "laptop" in user_issue or "computer" in user_issue or "slow" in user_issue:
+        category="Hardware issue"
+    else:
+        category="General IT issue"
+
+return{
+    "issue"=user_issue,
+    "category"=category
+}
+   
 
