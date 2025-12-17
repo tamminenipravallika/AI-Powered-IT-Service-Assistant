@@ -76,11 +76,11 @@ def issue():
         solution="Your issue has been noted. IT support will contact you."
 
     ticket={
-        "ticket_id"=ticket_id,
-        "issue"=user_issue,
-        "category"=category,
-        "status"="open",
-        "suggested_solution"=solution
+        "ticket_id":ticket_id,
+        "issue":user_issue,
+        "category":category,
+        "status":"open",
+        "suggested_solution":solution
     }
     ticket_id +=1
 return ticket
