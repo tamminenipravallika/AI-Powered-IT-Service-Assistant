@@ -84,5 +84,8 @@ def issue():
     }
     ticket_id +=1
     return ticket
+
+if __name__ == "__main__":
+    app.run(debug=True)
    
 
