@@ -14,14 +14,48 @@ def status():
     return "AISA project is active and learning in progress"
 
 def classify_intent(user_issue):
-     if "vpn" in user_issue or "network" in user_issue:
-       return "Network issue"
-    elif "password" in user_issue or "signin" in user_issue or "login" in user_issue or "signup" in user_issue:
-        return "Access issue"
-    elif "laptop" in user_issue or "computer" in user_issue or "slow" in user_issue:
-        return "Hardware issue"
-    else:
-        "General IT issue"
+    network_examples = [
+        "vpn not working",
+        "internet connection issue",
+        "cannot connect to network",
+        "remote access problem"
+    ]
+
+    access_examples = [
+        "forgot password",
+        "login failed",
+        "account locked",
+        "cannot access system"
+    ]
+
+    hardware_examples = [
+        "laptop is slow",
+        "system hangs",
+        "computer overheating",
+        "device not responding"
+    ]
+
+    def similarity(text, examples):
+        score = 0
+        for example in examples:
+            for word in example.split():
+                if word in text:
+                    score += 1
+        return score
+
+    scores = {
+        "Network Issue": similarity(user_issue, network_examples),
+        "Access Issue": similarity(user_issue, access_examples),
+        "Hardware Issue": similarity(user_issue, hardware_examples)
+    }
+
+    best_category = max(scores, key=scores.get)
+
+    if scores[best_category] == 0:
+        return "General IT Issue"
+
+    return best_category
+
 
 @app.route("/issue", methods=["POST"])
 def issue():
