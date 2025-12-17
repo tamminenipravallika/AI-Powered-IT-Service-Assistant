@@ -83,6 +83,6 @@ def issue():
         "suggested_solution":solution
     }
     ticket_id +=1
-return ticket
+    return ticket
    
 
