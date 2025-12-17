@@ -1,17 +1,27 @@
 # AI-Powered IT Service Assistant (AISA)
 
-## What is this project?
-This project is an AI-powered IT support system designed for large companies.
+## Overview
+AISA is an AI-powered backend system designed to automate IT helpdesk operations in large enterprises.
 
-## Why this project?
-In big companies, IT teams receive many repeated issues.
-This system helps understand issues and provide quick solutions using AI.
+## Problem Statement
+Enterprise IT teams receive a high volume of repetitive support requests, leading to increased resolution time and workload.
 
-## What will this project do?
-- Understand IT problems written by users
-- Classify the type of issue
-- Help in creating IT support tickets
-- Designed similar to enterprise systems used by Infosys
+## Solution
+The system accepts user IT issues through APIs, classifies them using NLP-based intent detection, provides automated solutions, and generates support tickets.
+
+## Key Features
+- REST APIs built using Flask
+- NLP-based intent classification
+- Automated issue categorization and solutions
+- Ticket generation with status tracking
+- Modular and scalable backend design
+
+## Tech Stack
+- Python
+- Flask (Backend Framework)
+- REST APIs
+- NLP (Intent Classification)
+- GitHub
 
 ## Project Status
-Learning and building step by step.
+Completed
