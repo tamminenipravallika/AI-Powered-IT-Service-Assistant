@@ -11,10 +11,36 @@
     <input type="text" id="issue" placeholder="Example: My VPN is not working" style="width:300px;">
     <br><br>
 
-    <button>Submit Issue</button>
+    <button onclick="submitIssue()">Submit Issue</button>
 
     <h3>Response:</h3>
-    <pre>This response will appear here</pre>
+    <pre id="response">Waiting for response...</pre>
+
+    <script>
+        function submitIssue() {
+            const issueText = document.getElementById("issue").value;
+
+            fetch("http://127.0.0.1:5000/issue", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    issue: issueText
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("response").textContent =
+                    JSON.stringify(data, null, 2);
+            })
+            .catch(error => {
+                document.getElementById("response").textContent =
+                    "Error connecting to backend";
+            });
+        }
+    </script>
 </body>
 </html>
+
 
