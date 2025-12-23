@@ -1,6 +1,6 @@
 # Backend server for AISA project
 
-from flask import Flask, request
+from flask import Flask, request, render_template
 
 app = Flask(__name__)
 ticket_id = 1
