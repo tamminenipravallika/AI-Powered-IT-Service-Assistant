@@ -1,46 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>AISA – IT Service Assistant</title>
+    <title>AISA | AI-Powered IT Service Assistant</title>
+    <meta charset="UTF-8">
 </head>
 <body>
-    <h2>AI-Powered IT Service Assistant</h2>
 
-    <p>Enter your IT issue below:</p>
+    <!-- Header -->
+    <header>
+        <h1>AISA</h1>
+        <p>AI-Powered IT Service Assistant</p>
+    </header>
 
-    <input type="text" id="issue" placeholder="Example: My VPN is not working" style="width:300px;">
-    <br><br>
+    <!-- Main Section -->
+    <main>
+        <h2>Report Your IT Issue</h2>
 
-    <button onclick="submitIssue()">Submit Issue</button>
+        <p>Describe your IT problem below and get an instant solution.</p>
 
-    <h3>Response:</h3>
-    <pre id="response">Waiting for response...</pre>
+        <input 
+            type="text" 
+            id="issue" 
+            placeholder="Example: My VPN is not working"
+            style="width:300px;"
+        >
+        <br><br>
 
-    <script>
-        function submitIssue() {
-            const issueText = document.getElementById("issue").value;
+        <button>Submit Issue</button>
 
-            fetch("http://127.0.0.1:5000/issue", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    issue: issueText
-                })
-            })
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById("response").textContent =
-                    JSON.stringify(data, null, 2);
-            })
-            .catch(error => {
-                document.getElementById("response").textContent =
-                    "Error connecting to backend";
-            });
-        }
-    </script>
+        <h3>Response</h3>
+        <pre id="response">Your solution will appear here</pre>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 AISA Project</p>
+    </footer>
+
 </body>
 </html>
-
 
