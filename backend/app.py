@@ -7,7 +7,7 @@ ticket_id = 1
 
 @app.route("/")
 def home():
-    return "AISA backend server is running"
+    return render_template("index.html")
 
 @app.route("/status")
 def status():
