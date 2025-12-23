@@ -19,8 +19,13 @@ function submitIssue() {
     })
     .then(response => response.json())
     .then(data => {
-        document.getElementById("response").textContent =
-            JSON.stringify(data, null, 2);
+    document.getElementById("response").textContent =
+        "Ticket ID: " + data.ticket_id + "\n" +
+        "Category: " + data.category + "\n" +
+        "Status: " + data.status + "\n\n" +
+        "Suggested Solution:\n" + data.suggested_solution;
+});
+
     })
     .catch(error => {
         document.getElementById("response").textContent =
